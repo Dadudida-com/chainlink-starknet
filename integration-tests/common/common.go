@@ -8,18 +8,18 @@ import (
 	"testing"
 	"time"
 
+	"github.com/google/uuid"
 	"github.com/lib/pq"
 	"github.com/rs/zerolog/log"
-	uuid "github.com/satori/go.uuid"
 	"gopkg.in/guregu/null.v4"
 
 	"github.com/smartcontractkit/caigo/gateway"
 
-	"github.com/smartcontractkit/chainlink-env/environment"
-	"github.com/smartcontractkit/chainlink-env/pkg/alias"
-	"github.com/smartcontractkit/chainlink-env/pkg/helm/chainlink"
-	"github.com/smartcontractkit/chainlink-env/pkg/helm/mock-adapter"
 	"github.com/smartcontractkit/chainlink-starknet/ops/devnet"
+	"github.com/smartcontractkit/chainlink-testing-framework/k8s/environment"
+	"github.com/smartcontractkit/chainlink-testing-framework/k8s/pkg/alias"
+	"github.com/smartcontractkit/chainlink-testing-framework/k8s/pkg/helm/chainlink"
+	mock_adapter "github.com/smartcontractkit/chainlink-testing-framework/k8s/pkg/helm/mock-adapter"
 	"github.com/smartcontractkit/chainlink/integration-tests/client"
 	"github.com/smartcontractkit/chainlink/v2/core/services/job"
 	"github.com/smartcontractkit/chainlink/v2/core/services/relay"
@@ -169,7 +169,7 @@ func (c *Common) CreateJobsForContract(cc *ChainlinkClient, observationSource st
 
 	// Defining relay config
 	bootstrapRelayConfig := job.JSONConfig{
-		"nodeName":       fmt.Sprintf("\"starknet-OCRv2-%s-%s\"", "node", uuid.NewV4().String()),
+		"nodeName":       fmt.Sprintf("\"starknet-OCRv2-%s-%s\"", "node", uuid.New().String()),
 		"accountAddress": fmt.Sprintf("\"%s\"", accountAddresses[0]),
 		"chainID":        fmt.Sprintf("\"%s\"", c.ChainId),
 	}
@@ -182,7 +182,7 @@ func (c *Common) CreateJobsForContract(cc *ChainlinkClient, observationSource st
 	}
 	// Setting up bootstrap node
 	jobSpec := &client.OCR2TaskJobSpec{
-		Name:           fmt.Sprintf("starknet-OCRv2-%s-%s", "bootstrap", uuid.NewV4().String()),
+		Name:           fmt.Sprintf("starknet-OCRv2-%s-%s", "bootstrap", uuid.New().String()),
 		JobType:        "bootstrap",
 		OCR2OracleSpec: oracleSpec,
 	}
@@ -228,7 +228,7 @@ func (c *Common) CreateJobsForContract(cc *ChainlinkClient, observationSource st
 		}
 
 		jobSpec = &client.OCR2TaskJobSpec{
-			Name:              fmt.Sprintf("starknet-OCRv2-%d-%s", nIdx, uuid.NewV4().String()),
+			Name:              fmt.Sprintf("starknet-OCRv2-%d-%s", nIdx, uuid.New().String()),
 			JobType:           "offchainreporting2",
 			OCR2OracleSpec:    oracleSpec,
 			ObservationSource: observationSource,

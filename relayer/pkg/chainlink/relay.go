@@ -9,8 +9,8 @@ import (
 	starkchain "github.com/smartcontractkit/chainlink-starknet/relayer/pkg/chainlink/chain"
 	"github.com/smartcontractkit/chainlink-starknet/relayer/pkg/chainlink/ocr2"
 
-	"github.com/smartcontractkit/chainlink-relay/pkg/logger"
-	relaytypes "github.com/smartcontractkit/chainlink-relay/pkg/types"
+	"github.com/smartcontractkit/chainlink-common/pkg/logger"
+	relaytypes "github.com/smartcontractkit/chainlink-common/pkg/types"
 )
 
 var _ relaytypes.Relayer = (*relayer)(nil) //nolint:staticcheck
@@ -108,4 +108,8 @@ func (r *relayer) NewMercuryProvider(rargs relaytypes.RelayArgs, pargs relaytype
 
 func (r *relayer) NewFunctionsProvider(rargs relaytypes.RelayArgs, pargs relaytypes.PluginArgs) (relaytypes.FunctionsProvider, error) {
 	return nil, errors.New("functions are not supported for solana")
+}
+
+func (r *relayer) NewAutomationProvider(rargs relaytypes.RelayArgs, pargs relaytypes.PluginArgs) (relaytypes.AutomationProvider, error) {
+	return nil, errors.New("automation is not supported for starknet")
 }

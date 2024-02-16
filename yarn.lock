@@ -2756,7 +2756,7 @@ axios@^0.24.0:
   dependencies:
     follow-redirects "^1.14.4"
 
-axios@^1.0.0, axios@^1.6.0:
+axios@^1.0.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.0.tgz#f1e5292f26b2fd5c2e66876adc5b06cdbd7d2102"
   integrity sha512-EZ1DYihju9pwVB+jg67ogm+Tmqc6JmhamRN6I4Zt8DfZu5lbcQGw3ozH9lFejSJgs/ibaef3A9PMXPLeefFGJg==
@@ -7985,9 +7985,9 @@ unbox-primitive@^1.0.2:
     which-boxed-primitive "^1.0.2"
 
 undici@^5.14.0:
-  version "5.28.2"
-  resolved "https://registry.yarnpkg.com/undici/-/undici-5.28.2.tgz#fea200eac65fc7ecaff80a023d1a0543423b4c91"
-  integrity sha512-wh1pHJHnUeQV5Xa8/kyQhO7WFa8M34l026L5P/+2TYiakvGy5Rdc8jWZVyG7ieht/0WgJLEd3kcU5gKx+6GC8w==
+  version "5.28.3"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-5.28.3.tgz#a731e0eff2c3fcfd41c1169a869062be222d1e5b"
+  integrity sha512-3ItfzbrhDlINjaP0duwnNsKpDQk3acHI3gVJ1z4fmwMK31k5G9OVIAMLSIaP6w4FaGkaAkN6zaQO9LUvZ1t7VA==
   dependencies:
     "@fastify/busboy" "^2.0.0"
 

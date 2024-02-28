@@ -26,6 +26,6 @@
     "@chainlink/contracts": "^0.4.2",
     "@chainlink/starknet": "^1.0.0",
     "@openzeppelin/contracts": "^4.7.3",
-    "axios": "^1.6.0"
+    "axios": "^1.6.6"
   }
 }

@@ -9,11 +9,12 @@ import (
 	"github.com/smartcontractkit/chainlink-starknet/relayer/pkg/chainlink/txm"
 	"github.com/smartcontractkit/chainlink-starknet/relayer/pkg/starknet"
 
-	"github.com/smartcontractkit/chainlink-relay/pkg/logger"
-	relaytypes "github.com/smartcontractkit/chainlink-relay/pkg/types"
-	"github.com/smartcontractkit/chainlink-relay/pkg/utils"
 	"github.com/smartcontractkit/libocr/offchainreporting2/reportingplugin/median"
 	"github.com/smartcontractkit/libocr/offchainreporting2/types"
+
+	"github.com/smartcontractkit/chainlink-common/pkg/logger"
+	relaytypes "github.com/smartcontractkit/chainlink-common/pkg/types"
+	"github.com/smartcontractkit/chainlink-common/pkg/utils"
 )
 
 var _ relaytypes.ConfigProvider = (*configProvider)(nil)
@@ -150,4 +151,8 @@ func (p *medianProvider) MedianContract() median.MedianContract {
 
 func (p *medianProvider) OnchainConfigCodec() median.OnchainConfigCodec {
 	return medianreport.OnchainConfigCodec{}
+}
+
+func (p *medianProvider) ChainReader() relaytypes.ChainReader {
+	return nil
 }
